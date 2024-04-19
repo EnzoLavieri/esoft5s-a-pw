@@ -74,5 +74,19 @@ async function main() {
     addVisitInfoToFooter();
 }
 
+function enviar() {
+    alert('Formulário enviado')
+  }
+
+  function enviar(e) {
+    e.preventDefault()
+  
+    const form = e.target
+    const formData = new FormData(form)
+  
+    console.log(formData.get('nome'))
+      }
+  
+
 main();
 

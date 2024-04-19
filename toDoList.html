@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        main{
+            grid-template-columns: auto;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+        }
+        h3{
+            margin: 0;
+        }
+
+        footer{
+            position: absolute;
+             bottom:0;  
+             width: 100%;      
+        }   
+        header,footer{
+            background-color: #333 ;
+        }
+    </style>
+</head>
+<body>
+     <header id="header">
+        <h1>To do list</h1>
+     </header>
+
+     <footer aria-label="Rodapé">
+        <p aria-label="Copyright">
+          &copy; 2024 To do list.
+        </p>
+     </footer>
+
+     <form name="meu-form" onsubmit="enviar()">
+        <input type="text" name="tarefa" placeholder="Digite uma tarefa..."/>
+        <button type="submit">Adicionar Tarefa</button>
+      </form>
+
+     <script src="script.js"></script>
+     <script>
+         updateVisitCount();
+         addVisitInfoToFooter(); 
+     </script>  
+</body>
+</html>

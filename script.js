@@ -70,8 +70,8 @@ async function main() {
     h3.textContent = "Informações sobre o " + evolucaoPokemon;
     pokemonCard.appendChild(h3);
 
-    updateVisitCount();
-    addVisitInfoToFooter();
+   updateVisitCount();
+   addVisitInfoToFooter();
 }
 
 function enviar() {
@@ -86,7 +86,53 @@ function enviar() {
   
     console.log(formData.get('nome'))
       }
-  
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const todoForm = document.getElementById('todo-form');
+    
+        todoForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const formData = new FormData(todoForm);
+            const title = formData.get('title');
+            const description = formData.get('description');
+    
+            let todos = JSON.parse(localStorage.getItem('todos')) || [];
+    
+            todos.push({ title, description });
+    
+            localStorage.setItem('todos', JSON.stringify(todos));
+    
+            todoForm.reset();
+    
+            displayTodos();
+        });
+    
+        function displayTodos() {
+            const todoList = document.getElementById('todo-list');
+            const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    
+            todoList.innerHTML = '';
+    
+            todos.forEach(todo => {
+                const listItem = document.createElement('li');
+                const titleHeading = document.createElement('h2');
+                titleHeading.textContent = todo.title;
+                const descriptionParagraph = document.createElement('p');
+                descriptionParagraph.textContent = todo.description;
+                
+                listItem.appendChild(titleHeading);
+                listItem.appendChild(descriptionParagraph);
+                
+                todoList.appendChild(listItem);
+            });
+        }
+    
+        displayTodos();
+    });
+    window.addEventListener('beforeunload', () => {
+        localStorage.removeItem('displayTodos');
+    });
 
 main();
 

@@ -274,8 +274,6 @@ color: white;
 border:0;
 }
 
-
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -290,4 +288,11 @@ border:0;
 main > section,
 main > article {
   animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+#todo-list li {
+  white-space: pre-wrap;
+  margin: 1%;
+  padding:2%;
+  border: 1px solid gray;
 }

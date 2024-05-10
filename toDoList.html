@@ -17,13 +17,13 @@
             margin: 0;
         }
 
-        footer{
-            position: absolute;
-             bottom:0;  
-             width: 100%;      
-        }   
+  
         header,footer{
             background-color: #333 ;
+        }
+
+        ul{
+            list-style-type:none
         }
     </style>
 </head>
@@ -32,16 +32,27 @@
         <h1>To do list</h1>
      </header>
 
-     <footer aria-label="Rodapé">
+
+
+     <!-- <form name="meu-form" onsubmit="enviar()">
+        <input type="text" name="tarefa" placeholder="Digite uma tarefa..."/>
+        <button type="submit">Adicionar Tarefa</button>
+      </form> -->
+
+      <form id="todo-form">
+        <input type="text" name="title" placeholder="Título da Tarefa" required>
+        <textarea name="description" placeholder="Descrição da Tarefa" required></textarea>
+        <button type="submit">Adicionar Tarefa</button>
+    </form>
+
+    <ul>
+        <li id="todo-list"></li>
+    </ul>   
+      <footer aria-label="Rodapé">
         <p aria-label="Copyright">
           &copy; 2024 To do list.
         </p>
      </footer>
-
-     <form name="meu-form" onsubmit="enviar()">
-        <input type="text" name="tarefa" placeholder="Digite uma tarefa..."/>
-        <button type="submit">Adicionar Tarefa</button>
-      </form>
 
      <script src="script.js"></script>
      <script>

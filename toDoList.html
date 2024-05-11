@@ -25,6 +25,19 @@
         ul{
             list-style-type:none
         }
+
+        form{
+            margin: 1%;
+            gap:10px;
+        }
+
+        input[type="text"],textarea[name="description"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -32,17 +45,10 @@
         <h1>To do list</h1>
      </header>
 
-
-
-     <!-- <form name="meu-form" onsubmit="enviar()">
-        <input type="text" name="tarefa" placeholder="Digite uma tarefa..."/>
-        <button type="submit">Adicionar Tarefa</button>
-      </form> -->
-
       <form id="todo-form">
-        <input type="text" name="title" placeholder="Título da Tarefa" required>
-        <textarea name="description" placeholder="Descrição da Tarefa" required></textarea>
-        <button type="submit">Adicionar Tarefa</button>
+        <input type="text" name="title" placeholder="Informe o título da tarefa" required>
+        <textarea name="description" placeholder="Informe a descrição da tarefa" required></textarea>
+        <button type="submit">Salvar Tarefa</button>
     </form>
 
     <ul>

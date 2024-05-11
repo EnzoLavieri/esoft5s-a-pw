@@ -111,19 +111,20 @@ function enviar() {
         function displayTodos() {
             const todoList = document.getElementById('todo-list');
             const todos = JSON.parse(localStorage.getItem('todos')) || [];
-    
+        
             todoList.innerHTML = '';
-    
+        
             todos.forEach(todo => {
                 const listItem = document.createElement('li');
-                const titleHeading = document.createElement('h2');
+                const titleHeading = document.createElement('h2'); 
                 titleHeading.textContent = todo.title;
                 const descriptionParagraph = document.createElement('p');
                 descriptionParagraph.textContent = todo.description;
-                
+        
                 listItem.appendChild(titleHeading);
+                listItem.appendChild(document.createElement('br')); 
                 listItem.appendChild(descriptionParagraph);
-                
+        
                 todoList.appendChild(listItem);
             });
         }

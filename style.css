@@ -21,7 +21,7 @@ td {
 /* Estilos gerais */
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: #333;
   background-color: #f4f4f4;
 }
@@ -159,7 +159,7 @@ nav a:hover {
 }
 
 #curiosidades li::marker {
-  content: '🔍';
+  content: "🔍";
 }
 
 #curiosidades ul {
@@ -207,13 +207,13 @@ article {
 
 /* Links */
 
-a[target='_blank'] {
+a[target="_blank"] {
   color: #4592c4;
   font-weight: bold;
   transition: opacity 0.3s ease-in-out;
 }
 
-a[target='_blank']:hover {
+a[target="_blank"]:hover {
   opacity: 0.8;
 }
 
@@ -239,15 +239,15 @@ footer a {
   transition: opacity 0.3s ease-in-out;
 }
 
-footer a[href*='#'] {
+footer a[href*="#"] {
   color: white;
 }
 
-footer a[href*='mailto'] {
+footer a[href*="mailto"] {
   color: orangered;
 }
 
-footer a[href*='tel'] {
+footer a[href*="tel"] {
   color: limegreen;
 }
 
@@ -255,19 +255,18 @@ footer a[href]:hover {
   opacity: 0.8;
 }
 
-form{
-display: grid;
-justify-content: center;
-justify-items: center;
+form {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
 }
 
-button{
-padding: 4%;
-background-color: #0074d9;
-color: white;
-border:0;
+button {
+  padding: 4%;
+  background-color: #0074d9;
+  color: white;
+  border: 0;
 }
-
 
 @keyframes fadeIn {
   0% {
@@ -288,6 +287,55 @@ main > article {
 #todo-list li {
   white-space: pre-wrap;
   margin: 1%;
-  padding:2%;
+  padding: 2%;
   border: 1px solid gray;
+}
+
+li {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.edit-button {
+  background-color: #676767;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.edit-button:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #000;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  top: -25px;
+  right: 0;
+  font-size: 12px;
+}
+
+#edit-dialog {
+  display: none;
+  border: solid 1px #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#edit-dialog[open] {
+  display: block;
+}
+
+dialog div {
+  display: flex;
+  gap: 4%;
+  justify-content: center;
 }

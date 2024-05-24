@@ -1,69 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To do list</title>
     <link rel="stylesheet" href="style.css" />
+
     <style>
-        main{
-            grid-template-columns: auto;
-        }
-        img{
-            width: 150px;
-            height: 150px;
-        }
-        h3{
-            margin: 0;
-        }
+      main {
+        grid-template-columns: auto;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      h3 {
+        margin: 0;
+      }
 
-  
-        header,footer{
-            background-color: #333 ;
-        }
+      header,
+      footer {
+        background-color: #333;
+      }
 
-        ul{
-            list-style-type:none
-        }
+      ul {
+        list-style-type: none;
+      }
 
-        form{
-            margin: 1%;
-            gap:10px;
-        }
+      form {
+        margin: 1%;
+        gap: 10px;
+      }
 
-        input[type="text"],textarea[name="description"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-
-
+      input[type="text"],
+      textarea[name="description"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
     </style>
-</head>
-<body>
-     <header id="header">
-        <h1>To do list</h1>
-     </header>
+  </head>
+  <body>
+    <header id="header">
+      <h1>To do list</h1>
+    </header>
 
-      <form id="todo-form">
-        <input type="text" name="title" placeholder="Informe o título da tarefa" required>
-        <textarea name="description" placeholder="Informe a descrição da tarefa" required></textarea>
-        <button type="submit">Salvar Tarefa</button>
+    <form id="todo-form">
+      <input
+        type="text"
+        name="title"
+        placeholder="Informe o título da tarefa"
+        required
+      />
+      <textarea
+        name="description"
+        placeholder="Informe a descrição da tarefa"
+        required
+      ></textarea>
+      <button type="submit">Salvar Tarefa</button>
     </form>
 
     <ul>
-        <li id="todo-list"></li>
-    </ul>   
-      <footer aria-label="Rodapé">
-        <p aria-label="Copyright">
-          &copy; 2024 To do list.
-        </p>
-     </footer>
+      <li id="todo-list"></li>
+    </ul>
 
-     <script src="script.js"></script>
-     <script>
-         updateVisitCount();
-         addVisitInfoToFooter(); 
-     </script>  
-</body>
+    <dialog id="edit-dialog">
+      <form id="edit-form">
+        <input
+          type="text"
+          name="edit-title"
+          placeholder="Informe o título da tarefa"
+          required
+        />
+        <textarea
+          name="edit-description"
+          placeholder="Informe a descrição da tarefa"
+          required
+        ></textarea>
+      </form>
+      <div>
+        <button type="submit">Editar tarefa</button>
+        <button type="button" id="cancel-button">Cancelar</button>
+      </div>
+    </dialog>
+
+    <footer aria-label="Rodapé">
+      <p aria-label="Copyright">&copy; 2024 To do list.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      updateVisitCount();
+      addVisitInfoToFooter();
+    </script>
+  </body>
 </html>

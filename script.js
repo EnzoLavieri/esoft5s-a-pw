@@ -121,23 +121,22 @@ document.addEventListener("DOMContentLoaded", function () {
     editDialog.close();
   });
 
-  //   editForm.addEventListener("submit", function (event) {
-  //     event.preventDefault();
+  editForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  //     const formData = new FormData(editForm);
-  //     const title = formData.get("edit-title");
-  //     const description = formData.get("edit-description");
+    const formData = new FormData(editForm);
+    const title = formData.get("edit-title");
+    const description = formData.get("edit-description");
 
-  //     let todos = JSON.parse(localStorage.getItem("todos")) || [];
+    let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-  //     if (currentEditIndex !== null) {
-  //       todos[currentEditIndex] = { title, description };
-  //       localStorage.setItem("todos", JSON.stringify(todos));
-  //       displayTodos();
-  //       editDialog.close();
-  //     }
-  //   });
-  // vai que voce pede na proxima aula, ja ta salvo o script de edit ;)
+    if (currentEditIndex !== null) {
+      todos[currentEditIndex] = { title, description };
+      localStorage.setItem("todos", JSON.stringify(todos));
+      displayTodos();
+      editDialog.close();
+    }
+  });
 
   function displayTodos() {
     const todoList = document.getElementById("todo-list");
@@ -151,11 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
       titleHeading.textContent = todo.title;
       const descriptionParagraph = document.createElement("p");
       descriptionParagraph.textContent = todo.description;
+
       const editButton = document.createElement("button");
       editButton.textContent = "✏️";
       editButton.classList.add("edit-button");
       editButton.title = "Editar tarefa";
-
       editButton.addEventListener("click", function () {
         currentEditIndex = index;
         editDialog.showModal();
@@ -163,9 +162,20 @@ document.addEventListener("DOMContentLoaded", function () {
         editForm.elements["edit-description"].value = todo.description;
       });
 
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "❌";
+      deleteButton.classList.add("delete-button");
+      deleteButton.title = "Excluir tarefa";
+      deleteButton.addEventListener("click", function () {
+        todos.splice(index, 1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+        displayTodos();
+      });
+
       listItem.appendChild(titleHeading);
       listItem.appendChild(descriptionParagraph);
       listItem.appendChild(editButton);
+      listItem.appendChild(deleteButton);
 
       todoList.appendChild(listItem);
     });
